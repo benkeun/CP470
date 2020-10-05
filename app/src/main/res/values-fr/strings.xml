@@ -9,4 +9,14 @@
     <string name="CheckBox">Case à Cocher</string>
     <string name="RadioButton">Bouton Radio</string>
     <string name="LoginHint">nom identifiant</string>
+    <string name="LoginButton">Identifiant</string>
+    <string name="dialog_message" >Bonjour, on a fini ici?</string>
+    <string name="dialog_title" >Terminé?</string>
+    <string name="ok" >d\'accord</string>
+    <string name="cancel" >Annuler</string>
+    <string name="ResponseMessage" >Voici ma réponse</string>
+    <string name="Switch_on" >l\'interrupteur est allumé</string>
+    <string name="Switch_off" >l\'interrupteur est éteint</string>
+
+
 </resources>
