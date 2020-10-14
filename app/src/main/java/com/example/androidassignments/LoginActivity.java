@@ -23,18 +23,18 @@ public class LoginActivity extends AppCompatActivity {
         Log.i(ACTIVITY_NAME, "In onCreate()");
         loginEmail = findViewById(R.id.LoginText);
         loginButton=findViewById(R.id.LoginButton);
-        sharedPref = this.getPreferences(Context.MODE_PRIVATE);
-        String SavedEmail=sharedPref.getString(getString(R.string.pref_file_key), "email@domain.com");
-        loginEmail.setText(SavedEmail);
+        sharedPref = this.getSharedPreferences(getString(R.string.pref_file_key),Context.MODE_PRIVATE);
+        String SavedEmail=sharedPref.getString(getString(R.string.EmailKey), "email@domain.com");
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Pass in the mime type you'd like to allow the user to select
                 // as the input
                 SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString(getString(R.string.pref_file_key), String.valueOf(loginEmail.getText()));
+                editor.putString(getString(R.string.EmailKey), String.valueOf(loginEmail.getText()));
                 editor.commit();
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });

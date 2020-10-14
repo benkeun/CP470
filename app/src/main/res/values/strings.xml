@@ -9,7 +9,8 @@
     <string name="RadioButton">RadioButton</string>
     <string name="LoginHint">login name</string>
     <string name="LoginButton">Login</string>
-    <string name="pref_file_key" translatable="false">defaultEmail</string>
+    <string name="pref_file_key" translatable="false">prefFile</string>
+    <string name="EmailKey" translatable="false">defaultEmail</string>
     <string name="dialog_message" >Hello, are we done here?</string>
     <string name="dialog_title" >Completed?</string>
     <string name="ok" >Ok</string>

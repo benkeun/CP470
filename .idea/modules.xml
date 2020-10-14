@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/AndroidAssignments.iml" filepath="$PROJECT_DIR$/.idea/modules/AndroidAssignments.iml" group="AndroidAssignments" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CP470-AndroidAssignments.iml" filepath="$PROJECT_DIR$/.idea/modules/CP470-AndroidAssignments.iml" group="AndroidAssignments" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="AndroidAssignments/app" />
     </modules>
   </component>
