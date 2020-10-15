@@ -11,11 +11,13 @@
     <string name="LoginButton">Login</string>
     <string name="pref_file_key" translatable="false">prefFile</string>
     <string name="EmailKey" translatable="false">defaultEmail</string>
-    <string name="dialog_message" >Hello, are we done here?</string>
-    <string name="dialog_title" >Completed?</string>
-    <string name="ok" >Ok</string>
-    <string name="cancel" >Cancel</string>
-    <string name="ResponseMessage" >Here is My response</string>
-    <string name="Switch_on" > Switch is On</string>
-    <string name="Switch_off" > Switch is Off</string>
+    <string name="dialog_message">Hello, are we done here?</string>
+    <string name="dialog_title">Completed?</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="ResponseMessage">Here is My response</string>
+    <string name="Switch_on"> Switch is On</string>
+    <string name="Switch_off"> Switch is Off</string>
+    <string name="startButtonText">Start Chat</string>
+    <string name="sendBtn">Send</string>
 </resources>

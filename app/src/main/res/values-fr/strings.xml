@@ -17,6 +17,8 @@
     <string name="ResponseMessage" >Voici ma réponse</string>
     <string name="Switch_on" >l\'interrupteur est allumé</string>
     <string name="Switch_off" >l\'interrupteur est éteint</string>
+    <string name="startButtonText">Démarrer la Discussion</string>
+    <string name="sendBtn">Envoyer</string>
 
 
 </resources>
