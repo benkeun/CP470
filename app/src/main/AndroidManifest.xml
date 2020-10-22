@@ -9,8 +9,12 @@
         android:roundIcon="@mipmap/android_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChatWindow"></activity>
-        <activity android:name=".ListItemsActivity"></activity>
+        <activity
+            android:name=".TestToolbar"
+            android:label="@string/title_activity_test_toolbar"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ChatWindow" />
+        <activity android:name=".ListItemsActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
     <uses-feature

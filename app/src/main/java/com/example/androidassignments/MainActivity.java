@@ -81,4 +81,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,ChatWindow.class);
         startActivity(intent);
     }
+    public void startToolbarFunc(View view){
+        Log.i(ACTIVITY_NAME, "User clicked Start Toolbar");
+        Intent intent = new Intent(MainActivity.this,TestToolbar.class);
+        startActivity(intent);
+    }
 }

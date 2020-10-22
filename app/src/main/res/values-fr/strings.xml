@@ -11,7 +11,7 @@
     <string name="LoginHint">nom identifiant</string>
     <string name="LoginButton">Identifiant</string>
     <string name="dialog_message" >Bonjour, on a fini ici?</string>
-    <string name="dialog_title" >Terminé?</string>
+    <string name="dialog_title" >Voulez-vous revenir en arrière?</string>
     <string name="ok" >d\'accord</string>
     <string name="cancel" >Annuler</string>
     <string name="ResponseMessage" >Voici ma réponse</string>
@@ -19,6 +19,11 @@
     <string name="Switch_off" >l\'interrupteur est éteint</string>
     <string name="startButtonText">Démarrer la Discussion</string>
     <string name="sendBtn">Envoyer</string>
+    <string name="versionAndName">Version 1.0 par Ben \nIcons par Icons8</string>
+    <string name="realBar">Je voulais un Vrai Bar</string>
+    <string name="penguin">vous avez sélectionné pingouin!</string>
+    <string name="title_activity_test_toolbar">Barre d\'outils de test</string>
+    <string name="dialTool">Qu\'est-ce qu\'un nouveau message?</string>
 
 
 </resources>

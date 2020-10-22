@@ -12,7 +12,7 @@
     <string name="pref_file_key" translatable="false">prefFile</string>
     <string name="EmailKey" translatable="false">defaultEmail</string>
     <string name="dialog_message">Hello, are we done here?</string>
-    <string name="dialog_title">Completed?</string>
+    <string name="dialog_title">Do you want to go back?</string>
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
     <string name="ResponseMessage">Here is My response</string>
@@ -20,4 +20,17 @@
     <string name="Switch_off"> Switch is Off</string>
     <string name="startButtonText">Start Chat</string>
     <string name="sendBtn">Send</string>
+    <string name="title_activity_test_toolbar">Test Toolbar</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="versionAndName">Version 1.0 by Ben \nIcons by Icons8</string>
+    <string name="realBar">I wanted a Real Bar</string>
+    <string name="penguin">You Selected Penguin!</string>
+    <string name="dialTool">What is new message?</string>
 </resources>
