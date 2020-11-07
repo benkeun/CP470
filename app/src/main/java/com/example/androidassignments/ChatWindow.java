@@ -34,7 +34,7 @@ public class ChatWindow extends AppCompatActivity {
     }
     public void sendMessageFunc(View view){
         messages.add(messageBar.getText().toString());
-        messageAdapter.notifyDataSetChanged(); //this restarts the process of getCount()/
+        messageAdapter.notifyDataSetChanged(); //this restarts the process of getCount()/getView()
         messageBar.setText("");
 
     }

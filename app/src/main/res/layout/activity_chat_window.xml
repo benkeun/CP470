@@ -2,19 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".ChatWindow">
 
-    <ListView
-        android:id="@+id/ListView"
-        android:layout_width="match_parent"
-        android:layout_height="678dp"
-        android:layout_above="@id/messageInput"
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true">
-
-    </ListView>
+        android:layout_below="@id/ListView"
+        android:onClick="sendMessageFunc"
+        android:text="@string/sendBtn" />
 
     <EditText
         android:id="@+id/messageInput"
@@ -27,14 +27,14 @@
         android:inputType="textPersonName"
         android:onClick="sendMessageFunc" />
 
-    <Button
-        android:id="@+id/sendButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+    <ListView
+        android:id="@+id/ListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/messageInput"
         android:layout_alignParentEnd="true"
-        android:layout_below="@id/ListView"
-        android:onClick="sendMessageFunc"
-        android:text="@string/sendBtn" />
+        android:layout_alignParentTop="true">
+
+    </ListView>
 
 </RelativeLayout>
