@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -84,6 +85,12 @@ public class MainActivity extends AppCompatActivity {
     public void startToolbarFunc(View view){
         Log.i(ACTIVITY_NAME, "User clicked Start Toolbar");
         Intent intent = new Intent(MainActivity.this,TestToolbar.class);
+        startActivity(intent);
+    }
+
+    public void startWeatherFunc(View view) {
+        Log.i(ACTIVITY_NAME, "User Clicked Weather");
+        Intent intent = new Intent(MainActivity.this, WeatherForecast.class);
         startActivity(intent);
     }
 }
