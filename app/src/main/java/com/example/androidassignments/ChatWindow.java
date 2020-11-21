@@ -1,9 +1,13 @@
 package com.example.androidassignments;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -11,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +25,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class ChatWindow extends AppCompatActivity {
+    final int CLICKITEM =100;
     EditText messageBar;
     ListView listItems;
     Button sendButton;
@@ -27,7 +33,11 @@ public class ChatWindow extends AppCompatActivity {
     ChatAdapter messageAdapter;
     ChatDatabaseHelper dbHelper;
     SQLiteDatabase database;
+    Cursor c;
+    MessageFragment messageFrag;
+    boolean wide=false;
     static String ACTIVITY_NAME="ChatWindow.java";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,11 +46,52 @@ public class ChatWindow extends AppCompatActivity {
         listItems=findViewById(R.id.ListView);
         sendButton=findViewById(R.id.sendButton);
         messageAdapter =new ChatAdapter( ChatWindow.this );
+
         listItems.setAdapter (messageAdapter);
+        listItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Bundle args = new Bundle();
+                args.putLong("id",l);
+                args.putString("msg",messageAdapter.getItem(i));
+                messageFrag=new MessageFragment(ChatWindow.this);
+                messageFrag.setArguments(args);
+                if (wide){
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.add(R.id.frame,messageFrag);
+                ft.commit();}
+                else{
+                    Intent intent = new Intent(ChatWindow.this,MessageDetails.class);
+                    intent.putExtra("args",args);
+                    startActivityForResult(intent,CLICKITEM);
+                }
+            }
+        });
+        wide= (findViewById(R.id.frame)!=(null));
         dbHelper = new ChatDatabaseHelper(this);
         database = dbHelper.getWritableDatabase();
-        Cursor c= database.query(false, "MessageTable", null, null, null, null, null, null, null);
+        updateMessages();
+        }
+    @Override
+    protected void onPause(){
+        if (wide){
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.remove(messageFrag);
+            ft.commit();
+        }
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        database.close();
+    }
+    public void updateMessages(){
+        messages= new ArrayList<>();
+        c= database.query(false, "MessageTable", null, null, null, null, null, null, null);
         c.moveToFirst();
+
         while
         (!c.isAfterLast()) {
             String msg = c.getString( c.getColumnIndex( ChatDatabaseHelper.KEY_MESSAGE));
@@ -53,12 +104,6 @@ public class ChatWindow extends AppCompatActivity {
             }
             c.moveToNext();
         }
-        }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        database.close();
     }
 
     public void sendMessageFunc(View view){
@@ -71,6 +116,19 @@ public class ChatWindow extends AppCompatActivity {
         database.insert(ChatDatabaseHelper.TABLE_NAME,"NullPlaceHolder",cValues);
 
     }
+
+    public void deleteMsg(int id) {
+        if (wide){
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.remove(messageFrag);
+            ft.commit();
+        }
+        database.delete(ChatDatabaseHelper.TABLE_NAME,ChatDatabaseHelper.KEY_ID+"="+id,null);
+       updateMessages();
+       messageAdapter.notifyDataSetChanged();
+
+    }
+
     private class ChatAdapter extends ArrayAdapter<String>{
         Context mContext;
         public ChatAdapter(Context ctx){
@@ -95,6 +153,24 @@ public class ChatWindow extends AppCompatActivity {
             return result;
 
         }
+        public long getItemId(int position){
+            Log.i("PositionValue", String.valueOf(position));
+            c.moveToPosition(position);
+            long k = c.getLong( c.getColumnIndex( ChatDatabaseHelper.KEY_ID));
+            Log.i("THISISID",String.valueOf(k));
+            return k;
+        }
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==CLICKITEM && resultCode==1){
+            int id=data.getIntExtra("msgId",-1);
+            if (id!=-1){
+                deleteMsg(id);
+            }
+        }
     }
 }

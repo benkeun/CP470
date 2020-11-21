@@ -25,6 +25,7 @@
     <string name="title_activity_test_toolbar">Barre d\'outils de test</string>
     <string name="dialTool">Qu\'est-ce qu\'un nouveau message?</string>
     <string name="weatherBtn">le Temps</string>
+    <string name="deleteMessage">Supprimer ce message </string>
 
 
 </resources>

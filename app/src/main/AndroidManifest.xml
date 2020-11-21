@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.androidassignments">
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,7 +9,8 @@
         android:roundIcon="@mipmap/android_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WeatherForecast"></activity>
+        <activity android:name=".MessageDetails"></activity>
+        <activity android:name=".WeatherForecast" />
         <activity
             android:name=".TestToolbar"
             android:label="@string/title_activity_test_toolbar"
@@ -30,5 +30,7 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
