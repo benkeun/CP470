@@ -114,7 +114,6 @@ public class WeatherForecast extends AppCompatActivity {
                             continue;
                         }
                         String name = parser.getName();
-                        Log.i("WEATHER",name);
                         if (name.equals("temperature")) {
                             cTemp=parser.getAttributeValue(null,"value");
                             publishProgress(25);
@@ -139,6 +138,7 @@ public class WeatherForecast extends AppCompatActivity {
                                     curImg.compress(Bitmap.CompressFormat.PNG, 80, outputStream);
                                     outputStream.flush();
                                     outputStream.close();
+                                Log.i("WeatherForecast","Downloaded Image");
                                 }
                             publishProgress(100);
                             }
@@ -157,6 +157,7 @@ public class WeatherForecast extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Integer... values) {
             Log.i ("vlaues",  values[0] +"-------------------------------") ;
+
            weatherProg.setProgress(values[0]);
         }
 
