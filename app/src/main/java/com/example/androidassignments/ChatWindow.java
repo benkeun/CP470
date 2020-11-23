@@ -58,13 +58,14 @@ public class ChatWindow extends AppCompatActivity {
                 messageFrag.setArguments(args);
                 if (wide){
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.add(R.id.frame,messageFrag);
+                ft.replace(R.id.frame,messageFrag);
                 ft.commit();}
                 else{
                     Intent intent = new Intent(ChatWindow.this,MessageDetails.class);
                     intent.putExtra("args",args);
                     startActivityForResult(intent,CLICKITEM);
                 }
+
             }
         });
         wide= (findViewById(R.id.frame)!=(null));
@@ -154,6 +155,7 @@ public class ChatWindow extends AppCompatActivity {
 
         }
         public long getItemId(int position){
+            c= database.query(false, "MessageTable", null, null, null, null, null, null, null);
             Log.i("PositionValue", String.valueOf(position));
             c.moveToPosition(position);
             long k = c.getLong( c.getColumnIndex( ChatDatabaseHelper.KEY_ID));
